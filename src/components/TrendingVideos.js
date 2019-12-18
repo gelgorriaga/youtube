@@ -14,7 +14,7 @@ export class TrendingVideos extends Component {
         let {pickVideo, theme} = this.props;
         console.log('PICKED VIVIVIVII0', pickVideo);
         return (
-            // <div className={theme || theme === "" ? "light" : "dark"}>
+           
             <div>
                 {pickVideo === null ? (
           <VideoList videos = {this.props.fetchData}/>

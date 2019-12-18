@@ -26,7 +26,7 @@ export class VideoList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+
   return { fetchData: state.fetchData, popularData: state.popularData };
 };
 

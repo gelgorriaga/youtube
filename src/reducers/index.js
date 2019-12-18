@@ -6,7 +6,9 @@ import {
   FETCH_DATA_ERROR,
   FETCH_DATA_SUCCESS,
   FETCH_POPULAR_DATA_SUCCESS,
-  FETCH_POPULAR_DATA_ERROR
+  FETCH_POPULAR_DATA_ERROR,
+  LIGHT,
+  DARK
 } from "../constants";
 
 const historyOfVideos = (history = [], action) => {
@@ -49,12 +51,12 @@ const videoSelectReducer = (videoSelected = null, action) => {
   }
 };
 
-const themeReducer = (light = "", action) => {
+const themeReducer = (light = LIGHT, action) => {
   switch (action.type) {
     case THEME_LIGHT:
-      return true;
+      return LIGHT;
     case THEME_DARK:
-      return false;
+      return DARK;
     default:
       return light;
   }

@@ -9,15 +9,17 @@ const VideoDetail = ({ videoSelected, theme, fetchData }) => {
   }
   const videoSrc = `https://www.youtube.com/embed/${videoSelected.id.videoId}`;
   return (
-    <div className={(theme||theme==='')? "video-wrapper light" : "video-wrapper dark"}>
+      <>
+    <div className="video-wrapper">
       <iframe title="video Player" src={videoSrc} className="video-iframe" />
       <p className="video-title">{videoSelected.snippet.title} </p>
       <p className="video-channel-name">{videoSelected.snippet.channelTitle}</p>
       <p className="video-description">{videoSelected.snippet.description}</p>
-      <div className="recommended-videos">
-        <VideoList videos = {fetchData} amountOfVideos={4} />
-      </div>
     </div>
+          <div className="recommended-videos">
+          <VideoList videos = {fetchData} amountOfVideos={4} />
+        </div>
+        </>
   );
 };
 

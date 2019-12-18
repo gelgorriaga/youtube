@@ -16,14 +16,16 @@ export class Home extends Component {
     const { theme, videoSelected } = this.props;
     console.log('FETCH DATA DESDE HOME', this.props.fetchData);
     return (
-      <div className={theme || theme === "" ? "light" : "dark"}>
+      <div>
   
         <SearchBar />
+        <div className = "home-wrapper">
         {videoSelected === null ? (
           <VideoList videos = {this.props.fetchData}/>
         ) : (
           <VideoDetail video={videoSelected} />
         )}
+        </div>
       </div>
     );
   }

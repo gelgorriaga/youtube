@@ -20,9 +20,11 @@ export class App extends Component {
     console.log("video selected", this.props.videoSelected);
     const { videoSelected, theme } = this.props;
     console.log('VIDEO SELECTED ',videoSelected);
+    const themeClass = theme === 'DARK' ? 'dark' : 'light'
     return (
       <BrowserRouter>
         <NavBar />
+        <div className={`theme ${themeClass}`}>
         <Switch>
           <Route
             path="/"
@@ -33,6 +35,7 @@ export class App extends Component {
           <Route path="/settings" exact component={SwitchTheme} />
           <Route path="/popular" exact component={TrendingVideos} />
         </Switch>
+        </div>
       </BrowserRouter>
     );
   }

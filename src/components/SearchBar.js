@@ -20,7 +20,7 @@ export class SearchBar extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>
-          <div>
+          <div className="searchbar-wrapper">
             <input
               type="text"
               value={this.state.term}
