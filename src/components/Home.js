@@ -13,8 +13,7 @@ export class Home extends Component {
     }
     
   render() {
-    const { theme, videoSelected } = this.props;
-    console.log('FETCH DATA DESDE HOME', this.props.fetchData);
+    const {  videoSelected } = this.props;
     return (
       <div>
   
@@ -32,10 +31,10 @@ export class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  return { theme: state.theme, videoSelected: state.videoSelected, fetchData: state.fetchData };
+  return {  videoSelected: state.videoSelected, fetchData: state.fetchData };
 };
 const mapDispatchToProps = dispatch => {
-//   return bindActionCreators({ fetchData }, dispatch);
+
 return bindActionCreators({ searchVideos:fetchData , dispatchVideoSelected:videoSelected}, dispatch);
 };
 

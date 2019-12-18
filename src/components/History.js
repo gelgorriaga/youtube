@@ -20,7 +20,7 @@ export class History extends Component {
     
   }
   render() {
-    let { history, theme } = this.props;
+    let { history } = this.props;
     return (
         <div>
         {history.length === 0 ? (
@@ -34,6 +34,6 @@ export class History extends Component {
 }
 
 const mapStateToProps = state => {
-  return { history: state.history, theme: state.theme };
+  return { history: state.history};
 };
 export default connect(mapStateToProps, null)(History);

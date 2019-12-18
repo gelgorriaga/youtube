@@ -5,10 +5,11 @@ import { light, dark } from "../actions";
 
 export class SwitchTheme extends Component {
   render() {
+      let {dark, light} = this.props;
     return (<div>
         <div>WORK IN PROGRESS HERE!</div>
-        <button onClick={this.props.dark}>dark</button>
-        <button onClick={this.props.light}>light</button>
+        <button onClick={dark}>dark</button>
+        <button onClick={light}>light</button>
     </div>);
   }
 }

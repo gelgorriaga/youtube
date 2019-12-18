@@ -17,9 +17,9 @@ export class App extends Component {
   }
 
   render() {
-    console.log("video selected", this.props.videoSelected);
-    const { videoSelected, theme } = this.props;
-    console.log('VIDEO SELECTED ',videoSelected);
+
+    const { theme } = this.props;
+ 
     const themeClass = theme === 'DARK' ? 'dark' : 'light'
     return (
       <BrowserRouter>

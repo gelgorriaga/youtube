@@ -7,9 +7,13 @@ import {videoSelected, videoWatched} from '../actions'
 const VideoItem = ({ video, videoSelected, videoWatched }) => {
   const { snippet } = video;
 
+    const videoClick = _ => {
+        videoSelected(video);
+        videoWatched(snippet.title)
+    }
 
   return (
-    <div onClick={()=>{videoSelected(video); videoWatched(snippet.title)}} className="video-item item">
+    <div onClick={videoClick} className="video-item item">
       <img
         alt={snippet.title}
         src={snippet.thumbnails.medium.url}
