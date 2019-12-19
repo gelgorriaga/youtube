@@ -5,11 +5,11 @@ import "../css/NavBar.css";
 const NavBar = () => {
   return (
     <div className="Navbar">
-          <NavLink exact to="/popular" activeClassName="Navbar-active">
-        Popular
-      </NavLink>
       <NavLink exact to="/" activeClassName="Navbar-active">
         Home
+      </NavLink>
+      <NavLink exact to="/trending" activeClassName="Navbar-active">
+        Trending
       </NavLink>
       <NavLink exact to="/history" activeClassName="Navbar-active">
         History

@@ -2,18 +2,20 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import '../css/styles.css'
 import uuid from 'uuid/v1';
-
+import VideoItem from './VideoItem';
 export class History extends Component {
 
 
   renderList() {
       if(this.props.history.length > 0){
-          console.log(this.props.history.length);
         return this.props.history.map(history => {
             return (
-              <div key={uuid()}>
-                <div className="history-list">{history}</div>
-              </div>
+              
+                <div className="history-list"> 
+                <VideoItem key={uuid()} video={history} />
+                <div className="history-item-description">{history.snippet.description}</div>
+                </div>
+          
             );
           });
       }

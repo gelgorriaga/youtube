@@ -3,7 +3,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { searchPopularVideos, videoSelected } from "../actions";
 import VideoList from "./VideoList";
-import VideoDetail from "./VideoDetail";
 
 export class TrendingVideos extends Component {
   componentDidMount() {
@@ -11,15 +10,8 @@ export class TrendingVideos extends Component {
     this.props.videoSelected(null);
   }
   render() {
-    let { pickVideo } = this.props;
-
     return (
       <div>
-        {pickVideo === null ? (
-          <VideoList videos={this.props.fetchData} />
-        ) : (
-          <VideoDetail video={pickVideo} />
-        )}
         <VideoList videos={this.props.popularData} />
       </div>
     );
@@ -27,7 +19,7 @@ export class TrendingVideos extends Component {
 }
 
 const mapStateToProps = state => {
-  return { pickVideo: state.videoSelected, popularData: state.popularData };
+  return { popularData: state.popularData };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -39,7 +39,7 @@ export const videoSelected = video => {
   };
 };
 
-export const fetchData = (term, maxResults = 20) => async dispatch => {
+export const fetchData = (term, maxResults = 48) => async dispatch => {
   try {
     const response = await axios.get(
       YOUTUBE_SEARCH_URL,
@@ -58,7 +58,7 @@ export const fetchData = (term, maxResults = 20) => async dispatch => {
   }
 };
 
-export const searchPopularVideos = (maxResults = 20) => async dispatch => {
+export const searchPopularVideos = (maxResults = 48) => async dispatch => {
   try {
     const response = await axios.get(
       YOUTUBE_SEARCH_POPULAR_VIDEOS_URL,
@@ -71,7 +71,6 @@ export const searchPopularVideos = (maxResults = 20) => async dispatch => {
         }
       }
     );
-    console.log(response.data.items);
     dispatch({
       type: FETCH_POPULAR_DATA_SUCCESS,
       payload: response.data.items
@@ -80,3 +79,27 @@ export const searchPopularVideos = (maxResults = 20) => async dispatch => {
     dispatch({ type: FETCH_POPULAR_DATA_ERROR, payload: error });
   }
 };
+
+export const videoComment = videoId => async dispatch =>{
+    try{
+        const comments = await axios.get(
+            'https://www.googleapis.com/youtube/v3/commentThreads',
+            {
+                params:{
+                    part: "snippet",
+                    maxResults: 50,
+                    key: API_KEY,
+                    videoId: videoId,
+                    textFormat: "plainText"
+                }
+            }
+        );
+        console.log(comments.data.items);
+        dispatch ({
+            type: 'VIDEO_COMMENT_SUCCESS',
+            payload: comments.data.items
+        })
+    } catch(error){
+        dispatch({ type: 'VIDEO_COMMENT_ERROR', payload: error });
+    }
+}

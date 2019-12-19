@@ -10,6 +10,7 @@ import History from "./History";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TrendingVideos from './TrendingVideos';
 import Home from './Home';
+import VideoDetail from './VideoDetail';
 
 export class App extends Component {
   componentDidMount() {
@@ -33,7 +34,8 @@ export class App extends Component {
           />
           <Route path="/history" exact component={History} />
           <Route path="/settings" exact component={SwitchTheme} />
-          <Route path="/popular" exact component={TrendingVideos} />
+          <Route path="/trending" exact component={TrendingVideos} />
+          <Route path="/video"  exact component = {VideoDetail} />
         </Switch>
         </div>
       </BrowserRouter>
