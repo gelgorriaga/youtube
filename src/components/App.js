@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { searchPopularVideos } from "../actions";
 import { bindActionCreators } from "redux";
-import SwitchTheme from "./SwitchTheme";
+import Settings from './Settings';
 
 import NavBar from "./NavBar";
 import History from "./History";
@@ -33,7 +33,7 @@ export class App extends Component {
             component={Home}
           />
           <Route path="/history" exact component={History} />
-          <Route path="/settings" exact component={SwitchTheme} />
+          <Route path="/settings" exact component={Settings} />
           <Route path="/trending" exact component={TrendingVideos} />
           <Route path="/video"  exact component = {VideoDetail} />
         </Switch>

@@ -11,7 +11,9 @@ import {
   FETCH_POPULAR_DATA_ERROR,
   LIGHT,
   DARK,
-  VIDEO_WATCHED
+  VIDEO_WATCHED,
+  GRID,
+  LIST
 } from "../constants";
 
 const historyOfVideos = (history = [], action) => {
@@ -68,6 +70,17 @@ const themeReducer = (light = LIGHT, action) => {
   }
 };
 
+const viewReducer = (display = GRID, action) => {
+    switch (action.type) {
+      case GRID:
+        return GRID;
+      case LIST:
+        return LIST;
+      default:
+        return display;
+    }
+  };
+
 const commentReducer = (comments = [], action) =>{
     switch (action.type) {
         case 'VIDEO_COMMENT_SUCCESS':
@@ -85,5 +98,6 @@ export default combineReducers({
   videoSelected: videoSelectReducer,
   theme: themeReducer,
   history: historyOfVideos,
-  comments: commentReducer
+  comments: commentReducer,
+  viewType: viewReducer
 });

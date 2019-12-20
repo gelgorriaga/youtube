@@ -9,6 +9,8 @@ import {
   FETCH_POPULAR_DATA_ERROR,
   API_KEY,
   ERROR,
+  LIST,
+  GRID,
   YOUTUBE_SEARCH_URL,
   YOUTUBE_SEARCH_POPULAR_VIDEOS_URL
 } from "../constants";
@@ -31,6 +33,18 @@ export const dark = () => {
     type: THEME_DARK
   };
 };
+
+export const grid = () => {
+    return {
+      type: GRID
+    };
+  };
+  
+  export const list = () => {
+    return {
+      type: LIST
+    };
+  };
 
 export const videoSelected = video => {
   return {
