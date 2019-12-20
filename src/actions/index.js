@@ -11,16 +11,25 @@ import {
   ERROR,
   LIST,
   GRID,
+  VIDEO_WATCHED,
+  SUBSCRIBE,
   YOUTUBE_SEARCH_URL,
   YOUTUBE_SEARCH_POPULAR_VIDEOS_URL
 } from "../constants";
 
-export const videoWatched = (video) =>{
-return{
-    type: 'VIDEO_WATCHED',
+export const videoWatched = video => {
+  return {
+    type: VIDEO_WATCHED,
     payload: video
-}
-}
+  };
+};
+
+export const subscribe = video => {
+  return {
+    type: SUBSCRIBE,
+    payload: video
+  };
+};
 
 export const light = () => {
   return {
@@ -35,16 +44,16 @@ export const dark = () => {
 };
 
 export const grid = () => {
-    return {
-      type: GRID
-    };
+  return {
+    type: GRID
   };
-  
-  export const list = () => {
-    return {
-      type: LIST
-    };
+};
+
+export const list = () => {
+  return {
+    type: LIST
   };
+};
 
 export const videoSelected = video => {
   return {
@@ -55,17 +64,14 @@ export const videoSelected = video => {
 
 export const fetchData = (term, maxResults = 48) => async dispatch => {
   try {
-    const response = await axios.get(
-      YOUTUBE_SEARCH_URL,
-      {
-        params: {
-          part: "snippet",
-          q: term,
-          key: API_KEY,
-          maxResults: maxResults
-        }
+    const response = await axios.get(YOUTUBE_SEARCH_URL, {
+      params: {
+        part: "snippet",
+        q: term,
+        key: API_KEY,
+        maxResults: maxResults
       }
-    );
+    });
     dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data.items });
   } catch (error) {
     dispatch({ type: FETCH_DATA_ERROR, payload: ERROR });
@@ -74,17 +80,14 @@ export const fetchData = (term, maxResults = 48) => async dispatch => {
 
 export const searchPopularVideos = (maxResults = 48) => async dispatch => {
   try {
-    const response = await axios.get(
-      YOUTUBE_SEARCH_POPULAR_VIDEOS_URL,
-      {
-        params: {
-          part: "snippet",
-          chart: "mostPopular",
-          key: API_KEY,
-          maxResults: maxResults
-        }
+    const response = await axios.get(YOUTUBE_SEARCH_POPULAR_VIDEOS_URL, {
+      params: {
+        part: "snippet",
+        chart: "mostPopular",
+        key: API_KEY,
+        maxResults: maxResults
       }
-    );
+    });
     dispatch({
       type: FETCH_POPULAR_DATA_SUCCESS,
       payload: response.data.items
@@ -94,26 +97,25 @@ export const searchPopularVideos = (maxResults = 48) => async dispatch => {
   }
 };
 
-export const videoComment = videoId => async dispatch =>{
-    try{
-        const comments = await axios.get(
-            'https://www.googleapis.com/youtube/v3/commentThreads',
-            {
-                params:{
-                    part: "snippet",
-                    maxResults: 50,
-                    key: API_KEY,
-                    videoId: videoId,
-                    textFormat: "plainText"
-                }
-            }
-        );
-        console.log(comments.data.items);
-        dispatch ({
-            type: 'VIDEO_COMMENT_SUCCESS',
-            payload: comments.data.items
-        })
-    } catch(error){
-        dispatch({ type: 'VIDEO_COMMENT_ERROR', payload: error });
-    }
-}
+export const videoComment = videoId => async dispatch => {
+  try {
+    const comments = await axios.get(
+      "https://www.googleapis.com/youtube/v3/commentThreads",
+      {
+        params: {
+          part: "snippet",
+          maxResults: 50,
+          key: API_KEY,
+          videoId: videoId,
+          textFormat: "plainText"
+        }
+      }
+    );
+    dispatch({
+      type: "VIDEO_COMMENT_SUCCESS",
+      payload: comments.data.items
+    });
+  } catch (error) {
+    dispatch({ type: "VIDEO_COMMENT_ERROR", payload: error });
+  }
+};

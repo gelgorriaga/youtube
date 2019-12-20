@@ -5,12 +5,18 @@ import { grid, list } from "../actions";
 
 export class SwitchViewType extends Component {
   render() {
-      let {list, grid} = this.props;
-    return (<div>
+    let { list, grid } = this.props;
+    return (
+      <div>
         <div>Change how does videos render</div>
-        <button onClick={list}>List</button>
-        <button onClick={grid}>grid</button>
-    </div>);
+        <button className="button" onClick={list}>
+          List
+        </button>
+        <button className="button" onClick={grid}>
+          grid
+        </button>
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {

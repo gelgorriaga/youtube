@@ -1,14 +1,14 @@
-import React from 'react'
-import SwitchTheme from './SwitchTheme';
-import SwitchViewType from './SwitchViewType'
+import React from "react";
+import SwitchTheme from "./SwitchTheme";
+import SwitchViewType from "./SwitchViewType";
 
 const Settings = () => {
-    return (
-        <div>
-            <SwitchTheme />
-            <SwitchViewType />
-        </div>
-    )
-}
+  return (
+    <div>
+      <SwitchTheme />
+      <SwitchViewType />
+    </div>
+  );
+};
 
-export default Settings
+export default Settings;

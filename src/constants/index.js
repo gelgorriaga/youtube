@@ -11,6 +11,7 @@ export const DARK = "DARK";
 export const LIST = "LIST";
 export const GRID = "GRID";
 export const VIDEO_WATCHED = "VIDEO_WATCHED";
+export const SUBSCRIBE = "SUBSCRIBE";
 export const API_KEY = "AIzaSyBrViP6giqGYX0XdQZjPJWH4rxJ8I-aWmg";
 export const YOUTUBE_SEARCH_URL =
   "https://www.googleapis.com/youtube/v3/search";

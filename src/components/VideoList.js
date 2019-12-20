@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import VideoItem from "./VideoItem";
 import "../css/styles.css";
 import { connect } from "react-redux";
-import uuid from 'uuid/v1';
+import uuid from "uuid/v1";
 
 export class VideoList extends Component {
   render() {
-    
     const { amountOfVideos, videos, viewType } = this.props;
 
     let renderedList;
@@ -22,26 +21,32 @@ export class VideoList extends Component {
       renderedList = renderedList.slice(1, amountOfVideos);
     }
 
-    //render as a list
-    if (viewType === 'LIST'){
-        return videos.map(video => {
-            return (
-              
-                <div className="history-list"> 
-                <VideoItem key={uuid()} video={video} />
-                <div className="history-item-description">{video.snippet.description}</div>
-                </div>
-          
-            );
-          });
+    //Render as a list
+    if (viewType === "LIST") {
+      return videos.map(video => {
+        return (
+          <div className="history-list">
+            <VideoItem key={uuid()} video={video} />
+            <div className="history-item-description">
+              {video.snippet.description}
+            </div>
+          </div>
+        );
+      });
     }
-    return <div className="video-list">{renderedList}</div>;
+    //Render as a grid!
+    if (viewType === "GRID") {
+      return <div className="video-list">{renderedList}</div>;
+    }
   }
 }
 
 const mapStateToProps = state => {
-
-  return { fetchData: state.fetchData, popularData: state.popularData, viewType: state.viewType };
+  return {
+    fetchData: state.fetchData,
+    popularData: state.popularData,
+    viewType: state.viewType
+  };
 };
 
 export default connect(mapStateToProps, null)(VideoList);

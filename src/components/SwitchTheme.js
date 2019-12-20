@@ -5,12 +5,18 @@ import { light, dark } from "../actions";
 
 export class SwitchTheme extends Component {
   render() {
-      let {dark, light} = this.props;
-    return (<div>
-        <div>WORK IN PROGRESS HERE!</div>
-        <button onClick={dark}>dark</button>
-        <button onClick={light}>light</button>
-    </div>);
+    let { dark, light } = this.props;
+    return (
+      <div>
+        <div>Theme</div>
+        <button className="button" onClick={dark}>
+          dark
+        </button>
+        <button className="button" onClick={light}>
+          light
+        </button>
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {

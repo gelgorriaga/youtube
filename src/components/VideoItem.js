@@ -5,7 +5,13 @@ import { bindActionCreators } from "redux";
 import { videoSelected, videoWatched, videoComment } from "../actions";
 import { withRouter } from "react-router-dom";
 
-const VideoItem = ({ video, videoSelected, videoWatched, history, videoComment }) => {
+const VideoItem = ({
+  video,
+  videoSelected,
+  videoWatched,
+  history,
+  videoComment
+}) => {
   const { snippet } = video;
 
   const videoClick = _ => {
@@ -25,6 +31,9 @@ const VideoItem = ({ video, videoSelected, videoWatched, history, videoComment }
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ videoSelected, videoWatched, videoComment }, dispatch);
+  return bindActionCreators(
+    { videoSelected, videoWatched, videoComment },
+    dispatch
+  );
 };
 export default connect(null, mapDispatchToProps)(withRouter(VideoItem));

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import _ from 'lodash';
+import _ from "lodash";
 
 import {
   THEME_LIGHT,
@@ -13,18 +13,29 @@ import {
   DARK,
   VIDEO_WATCHED,
   GRID,
-  LIST
+  LIST,
+  SUBSCRIBE
 } from "../constants";
 
 const historyOfVideos = (history = [], action) => {
-
   switch (action.type) {
     case VIDEO_WATCHED:
-    let historyDup =[...history, action.payload];
-    let non_duplicated_data = _.uniqBy(historyDup, "etag");
-    return non_duplicated_data;
+      let historyDup = [...history, action.payload];
+      let non_duplicated_data = _.uniqBy(historyDup, "etag");
+      return non_duplicated_data;
     default:
       return history;
+  }
+};
+
+const subscribeReducer = (channel = [], action) => {
+  switch (action.type) {
+    case SUBSCRIBE:
+      let channelDup = [...channel, action.payload];
+      //   let non_duplicated_data = _.uniqBy(channelDup, "etag");
+      return channelDup;
+    default:
+      return channel;
   }
 };
 
@@ -71,26 +82,26 @@ const themeReducer = (light = LIGHT, action) => {
 };
 
 const viewReducer = (display = GRID, action) => {
-    switch (action.type) {
-      case GRID:
-        return GRID;
-      case LIST:
-        return LIST;
-      default:
-        return display;
-    }
-  };
+  switch (action.type) {
+    case GRID:
+      return GRID;
+    case LIST:
+      return LIST;
+    default:
+      return display;
+  }
+};
 
-const commentReducer = (comments = [], action) =>{
-    switch (action.type) {
-        case 'VIDEO_COMMENT_SUCCESS':
-          return action.payload;
-          case 'VIDEO_COMMENT_ERROR':
-              return action.payload
-        default:
-          return comments;
-      }
-}
+const commentReducer = (comments = [], action) => {
+  switch (action.type) {
+    case "VIDEO_COMMENT_SUCCESS":
+      return action.payload;
+    case "VIDEO_COMMENT_ERROR":
+      return action.payload;
+    default:
+      return comments;
+  }
+};
 
 export default combineReducers({
   fetchData: fetchDataReducer,
@@ -99,5 +110,6 @@ export default combineReducers({
   theme: themeReducer,
   history: historyOfVideos,
   comments: commentReducer,
-  viewType: viewReducer
+  viewType: viewReducer,
+  subscription: subscribeReducer
 });

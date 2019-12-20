@@ -1,32 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import '../css/styles.css'
-import uuid from 'uuid/v1';
-import VideoItem from './VideoItem';
+import "../css/styles.css";
+import uuid from "uuid/v1";
+import VideoItem from "./VideoItem";
 export class History extends Component {
-
-
   renderList() {
-      if(this.props.history.length > 0){
-        return this.props.history.map(history => {
-            return (
-              
-                <div className="history-list"> 
-                <VideoItem key={uuid()} video={history} />
-                <div className="history-item-description">{history.snippet.description}</div>
-                </div>
-          
-            );
-          });
-      }
-    
+    if (this.props.history.length > 0) {
+      return this.props.history.map(history => {
+        return (
+          <div className="history-list">
+            <VideoItem key={uuid()} video={history} />
+            <div className="history-item-description">
+              {history.snippet.description}
+            </div>
+          </div>
+        );
+      });
+    }
   }
   render() {
     let { history } = this.props;
     return (
-        <div>
+      <div>
         {history.length === 0 ? (
-           <div className="warning"> You haven't seen any videos yet, please come back when you see any</div>
+          <div className="warning">
+            {" "}
+            You haven't seen any videos yet, please come back when you see any
+          </div>
         ) : (
           this.renderList()
         )}
@@ -36,6 +36,6 @@ export class History extends Component {
 }
 
 const mapStateToProps = state => {
-  return { history: state.history};
+  return { history: state.history };
 };
 export default connect(mapStateToProps, null)(History);

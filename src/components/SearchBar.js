@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchData, videoSelected } from "../actions";
 import { bindActionCreators } from "redux";
-import '../css/styles.css'
+import "../css/styles.css";
 export class SearchBar extends Component {
   state = { term: "" };
-
 
   onFormSubmit = event => {
     event.preventDefault();

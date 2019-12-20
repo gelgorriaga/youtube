@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../css/NavBar.css";
+import GoogleAuth from "./GoogleAuth";
 
 const NavBar = () => {
   return (
@@ -14,9 +15,14 @@ const NavBar = () => {
       <NavLink exact to="/history" activeClassName="Navbar-active">
         History
       </NavLink>
+      <NavLink exact to="/subscriptions" activeClassName="Navbar-active">
+        Subscriptions
+      </NavLink>
       <NavLink exact to="/settings" activeClassName="Navbar-active">
         Settings
       </NavLink>
+
+      <GoogleAuth />
     </div>
   );
 };
