@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../css/styles.css";
 import uuid from "uuid/v1";
-
+import { unsubscribe } from "../actions";
+import { bindActionCreators } from "redux";
 export class Subscriptions extends Component {
   renderList() {
     if (
@@ -10,9 +11,13 @@ export class Subscriptions extends Component {
       this.props.subscription !== undefined
     ) {
       return this.props.subscription.map(channel => {
+        console.log('chann',channel);
         return (
-          <div className="history-list" key={uuid()}>
+          <div className="subscription-list" key={uuid()}>
             <div className="history-item-description">{channel}</div>
+    
+              <button onClick={() => this.props.unsubscribe(channel)}>Unsubscribe</button>
+   
           </div>
         );
       });
@@ -20,13 +25,12 @@ export class Subscriptions extends Component {
   }
   render() {
     let { subscription } = this.props;
-    console.log(subscription);
     return (
       <div>
         {subscription.length === 0 || subscription === undefined ? (
           <div className="warning">
             {" "}
-            You haven't seen any videos yet, please come back when you see any
+            You haven't subscribed to any channel yet
           </div>
         ) : (
           this.renderList()
@@ -39,4 +43,8 @@ export class Subscriptions extends Component {
 const mapStateToProps = state => {
   return { subscription: state.subscription };
 };
-export default connect(mapStateToProps, null)(Subscriptions);
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ unsubscribe }, dispatch);
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Subscriptions);

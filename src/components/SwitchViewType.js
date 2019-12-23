@@ -7,15 +7,17 @@ export class SwitchViewType extends Component {
   render() {
     let { list, grid } = this.props;
     return (
-      <div>
-        <div>Change how does videos render</div>
-        <button className="button" onClick={list}>
-          List
-        </button>
-        <button className="button" onClick={grid}>
-          grid
-        </button>
-      </div>
+      <>
+        <div className="warning">Change how does videos render</div>
+        <div className="flex-container">
+          <button className="button" onClick={list}>
+            List
+          </button>
+          <button className="button" onClick={grid}>
+            grid
+          </button>
+        </div>
+      </>
     );
   }
 }

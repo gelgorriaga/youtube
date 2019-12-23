@@ -14,7 +14,8 @@ import {
   VIDEO_WATCHED,
   GRID,
   LIST,
-  SUBSCRIBE
+  SUBSCRIBE,
+  UNSUBSCRIBE
 } from "../constants";
 
 const historyOfVideos = (history = [], action) => {
@@ -32,8 +33,9 @@ const subscribeReducer = (channel = [], action) => {
   switch (action.type) {
     case SUBSCRIBE:
       let channelDup = [...channel, action.payload];
-      //   let non_duplicated_data = _.uniqBy(channelDup, "etag");
       return channelDup;
+    case UNSUBSCRIBE:
+      return channel.filter(name => name !== action.payload);
     default:
       return channel;
   }

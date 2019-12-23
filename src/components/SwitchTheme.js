@@ -7,15 +7,17 @@ export class SwitchTheme extends Component {
   render() {
     let { dark, light } = this.props;
     return (
-      <div>
-        <div>Theme</div>
-        <button className="button" onClick={dark}>
-          dark
-        </button>
-        <button className="button" onClick={light}>
-          light
-        </button>
-      </div>
+      <>
+        <div className="warning">Theme</div>
+        <div className="flex-container"> 
+          <button className="button dark" onClick={dark}>
+            dark
+          </button>
+          <button className="button light" onClick={light}>
+            light
+          </button>
+        </div>
+      </>
     );
   }
 }

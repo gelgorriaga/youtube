@@ -13,6 +13,7 @@ import {
   GRID,
   VIDEO_WATCHED,
   SUBSCRIBE,
+  UNSUBSCRIBE,
   YOUTUBE_SEARCH_URL,
   YOUTUBE_SEARCH_POPULAR_VIDEOS_URL
 } from "../constants";
@@ -30,6 +31,13 @@ export const subscribe = video => {
     payload: video
   };
 };
+
+export const unsubscribe = video => {
+    return {
+      type: UNSUBSCRIBE,
+      payload: video
+    };
+  };
 
 export const light = () => {
   return {
