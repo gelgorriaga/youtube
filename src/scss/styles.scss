@@ -123,6 +123,21 @@ body {
   margin-left: 2rem;
 }
 
+.channelInfo-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  width: 100%;
+
+  .icon {
+    width: 30px;
+  }
+  .channelDescription {
+    width: 50vw;
+  }
+}
+
 .recommended-videos {
   width: 30vw;
 }

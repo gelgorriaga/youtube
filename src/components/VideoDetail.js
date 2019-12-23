@@ -4,25 +4,38 @@ import VideoList from "./VideoList";
 import Comments from "./Comments";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { subscribe, unsubscribe } from "../actions";
+import { subscribe, unsubscribe, channelInfo, removeChannel } from "../actions";
 
 const VideoDetail = ({
   videoSelected,
   fetchData,
   subscribe,
   unsubscribe,
-  subscription
+  subscription,
+  channelInfo,
+  removeChannel
 }) => {
+
+     const doSubscribe = _ =>{
+        subscribe(videoSelected.snippet.channelTitle); 
+        channelInfo(videoSelected.snippet.channelId)
+    }
+
+    const doUnsubscribe = _ =>{
+        unsubscribe(videoSelected.snippet.channelTitle); 
+        removeChannel(videoSelected.snippet.channelTitle)
+    }
   const displaySubscribeButton = video => {
+
     if (subscription.includes(video)) {
       return (
-        <button onClick={() => unsubscribe(videoSelected.snippet.channelTitle)}>
+        <button onClick={doUnsubscribe}>
           Unsubscribe{" "}
         </button>
       );
     } else {
       return (
-        <button onClick={() => subscribe(videoSelected.snippet.channelTitle)}>
+        <button onClick={doSubscribe}>
           Subscribe{" "}
         </button>
       );
@@ -78,7 +91,7 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ subscribe, unsubscribe }, dispatch);
+  return bindActionCreators({ subscribe, unsubscribe, channelInfo, removeChannel }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoDetail);

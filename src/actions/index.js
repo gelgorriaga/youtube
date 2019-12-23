@@ -14,8 +14,14 @@ import {
   VIDEO_WATCHED,
   SUBSCRIBE,
   UNSUBSCRIBE,
+  FETCH_CHANNEL_SUCCESS,
+  FETCH_CHANNEL_ERROR,
+  VIDEO_COMMENT_ERROR,
+  VIDEO_COMMENT_SUCCESS,
+  REMOVE_CHANNEL,
   YOUTUBE_SEARCH_URL,
-  YOUTUBE_SEARCH_POPULAR_VIDEOS_URL
+  YOUTUBE_SEARCH_POPULAR_VIDEOS_URL,
+  YOUTUBE_CHANNEL_INFO
 } from "../constants";
 
 export const videoWatched = video => {
@@ -35,6 +41,13 @@ export const subscribe = video => {
 export const unsubscribe = video => {
     return {
       type: UNSUBSCRIBE,
+      payload: video
+    };
+  };
+
+  export const removeChannel = video => {
+    return {
+      type: REMOVE_CHANNEL,
       payload: video
     };
   };
@@ -70,7 +83,7 @@ export const videoSelected = video => {
   };
 };
 
-export const fetchData = (term, maxResults = 48) => async dispatch => {
+export const fetchData = (term, maxResults = 50) => async dispatch => {
   try {
     const response = await axios.get(YOUTUBE_SEARCH_URL, {
       params: {
@@ -86,7 +99,7 @@ export const fetchData = (term, maxResults = 48) => async dispatch => {
   }
 };
 
-export const searchPopularVideos = (maxResults = 48) => async dispatch => {
+export const searchPopularVideos = (maxResults = 50) => async dispatch => {
   try {
     const response = await axios.get(YOUTUBE_SEARCH_POPULAR_VIDEOS_URL, {
       params: {
@@ -120,10 +133,27 @@ export const videoComment = videoId => async dispatch => {
       }
     );
     dispatch({
-      type: "VIDEO_COMMENT_SUCCESS",
+      type: VIDEO_COMMENT_SUCCESS,
       payload: comments.data.items
     });
   } catch (error) {
-    dispatch({ type: "VIDEO_COMMENT_ERROR", payload: error });
+    dispatch({ type: VIDEO_COMMENT_ERROR, payload: error });
   }
 };
+
+
+export const channelInfo = (videoId) => async dispatch => {
+    try {
+      const response = await axios.get(YOUTUBE_CHANNEL_INFO, {
+        params: {
+          part: "snippet",
+          key: API_KEY,
+          id: videoId
+        }
+      });
+      dispatch({ type:  FETCH_CHANNEL_SUCCESS, payload: response.data.items[0].snippet });
+    } catch (error) {
+      dispatch({ type:  FETCH_CHANNEL_ERROR, payload: ERROR });
+    }
+  };
+
