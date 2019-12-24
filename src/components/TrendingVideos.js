@@ -11,9 +11,9 @@ export class TrendingVideos extends Component {
   }
   render() {
     return (
-      <div>
+      <>
         <VideoList videos={this.props.popularData} />
-      </div>
+      </>
     );
   }
 }

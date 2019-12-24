@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { searchPopularVideos } from "../actions";
+import { searchPopularVideos, fetchData } from "../actions";
 import { bindActionCreators } from "redux";
 import Settings from "./Settings";
 
@@ -15,6 +15,7 @@ import Subscriptions from "./Subscriptions";
 export class App extends Component {
   componentDidMount() {
     this.props.searchPopularVideos();
+    this.props.fetchData();
   }
 
   render() {
@@ -43,7 +44,7 @@ const mapStateToProps = state => {
   return { theme: state.theme, videoSelected: state.videoSelected };
 };
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ searchPopularVideos }, dispatch);
+  return bindActionCreators({ searchPopularVideos, fetchData }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

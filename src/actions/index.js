@@ -21,7 +21,8 @@ import {
   REMOVE_CHANNEL,
   YOUTUBE_SEARCH_URL,
   YOUTUBE_SEARCH_POPULAR_VIDEOS_URL,
-  YOUTUBE_CHANNEL_INFO
+  YOUTUBE_CHANNEL_INFO,
+  YOUTUBE_VIDEO_COMMENT
 } from "../constants";
 
 export const videoWatched = video => {
@@ -121,7 +122,7 @@ export const searchPopularVideos = (maxResults = 50) => async dispatch => {
 export const videoComment = videoId => async dispatch => {
   try {
     const comments = await axios.get(
-      "https://www.googleapis.com/youtube/v3/commentThreads",
+      YOUTUBE_VIDEO_COMMENT,
       {
         params: {
           part: "snippet",

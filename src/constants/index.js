@@ -25,3 +25,5 @@ export const YOUTUBE_SEARCH_POPULAR_VIDEOS_URL =
   "https://www.googleapis.com/youtube/v3/videos";
 export const YOUTUBE_CHANNEL_INFO =
   "https://www.googleapis.com/youtube/v3/channels";
+export const YOUTUBE_VIDEO_COMMENT =
+  "https://www.googleapis.com/youtube/v3/commentThreads";

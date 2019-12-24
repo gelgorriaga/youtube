@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-/* global gapi */
 
 export class GoogleAuth extends Component {
   state = { isSignedIn: null };
