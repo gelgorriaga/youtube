@@ -9,7 +9,6 @@ export class Subscriptions extends Component {
   renderList() {
     if (this.props.channelInfo.length > 0) {
       return this.props.channelInfo.map(channel => {
-    
         return (
           <div className="channelInfo-list" key={uuid()}>
             <img
@@ -17,12 +16,11 @@ export class Subscriptions extends Component {
               src={channel.thumbnails.medium.url}
               alt="channel thumbnail"
             />
-            <div>{channel.title}</div>
+            <div className="channel-title">{channel.title}</div>
                         
-            <div className="channelDescription">
-              {channel.description}
-            </div>
+            <div className="channel-description">{channel.description}</div>
             <button
+              className="unsubscribe-button"
               onClick={() => {
                 this.props.unsubscribe(channel.title);
                 this.props.removeChannel(channel.title);
@@ -40,7 +38,6 @@ export class Subscriptions extends Component {
     }
   }
   render() {
-   
     return <div>{this.renderList()}</div>;
   }
 }

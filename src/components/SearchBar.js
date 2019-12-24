@@ -21,6 +21,7 @@ export class SearchBar extends Component {
         <form onSubmit={this.onFormSubmit}>
           <div className="searchbar-wrapper">
             <input
+              placeholder="Search"
               type="text"
               value={this.state.term}
               onChange={this.onInputChange}

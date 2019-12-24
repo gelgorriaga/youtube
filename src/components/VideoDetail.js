@@ -15,30 +15,20 @@ const VideoDetail = ({
   channelInfo,
   removeChannel
 }) => {
+  const doSubscribe = _ => {
+    subscribe(videoSelected.snippet.channelTitle);
+    channelInfo(videoSelected.snippet.channelId);
+  };
 
-     const doSubscribe = _ =>{
-        subscribe(videoSelected.snippet.channelTitle); 
-        channelInfo(videoSelected.snippet.channelId)
-    }
-
-    const doUnsubscribe = _ =>{
-        unsubscribe(videoSelected.snippet.channelTitle); 
-        removeChannel(videoSelected.snippet.channelTitle)
-    }
+  const doUnsubscribe = _ => {
+    unsubscribe(videoSelected.snippet.channelTitle);
+    removeChannel(videoSelected.snippet.channelTitle);
+  };
   const displaySubscribeButton = video => {
-
     if (subscription.includes(video)) {
-      return (
-        <button onClick={doUnsubscribe}>
-          Unsubscribe{" "}
-        </button>
-      );
+      return <button onClick={doUnsubscribe}>Unsubscribe</button>;
     } else {
-      return (
-        <button onClick={doSubscribe}>
-          Subscribe{" "}
-        </button>
-      );
+      return <button onClick={doSubscribe}>Subscribe</button>;
     }
   };
   const videoSrcToRender = () => {
@@ -66,8 +56,9 @@ const VideoDetail = ({
           <p className="video-title">{videoSelected.snippet.title} </p>
           <p className="video-channel-name">
             {videoSelected.snippet.channelTitle}
-
-            {displaySubscribeButton(videoSelected.snippet.channelTitle)}
+            <div className="sub-button">
+              {displaySubscribeButton(videoSelected.snippet.channelTitle)}
+            </div>
           </p>
 
           <p className="video-description">
@@ -91,7 +82,10 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ subscribe, unsubscribe, channelInfo, removeChannel }, dispatch);
+  return bindActionCreators(
+    { subscribe, unsubscribe, channelInfo, removeChannel },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoDetail);

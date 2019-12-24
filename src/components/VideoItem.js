@@ -23,7 +23,11 @@ const VideoItem = ({
 
   return (
     <div onClick={videoClick} className="video-item item">
-      <img alt={snippet.title} src={snippet.thumbnails.medium.url} />
+      <img
+        className="thumbnail"
+        alt={snippet.title}
+        src={snippet.thumbnails.medium.url}
+      />
 
       <div className="header">{snippet.title}</div>
     </div>

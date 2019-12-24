@@ -39,18 +39,18 @@ export const subscribe = video => {
 };
 
 export const unsubscribe = video => {
-    return {
-      type: UNSUBSCRIBE,
-      payload: video
-    };
+  return {
+    type: UNSUBSCRIBE,
+    payload: video
   };
+};
 
-  export const removeChannel = video => {
-    return {
-      type: REMOVE_CHANNEL,
-      payload: video
-    };
+export const removeChannel = video => {
+  return {
+    type: REMOVE_CHANNEL,
+    payload: video
   };
+};
 
 export const light = () => {
   return {
@@ -141,19 +141,20 @@ export const videoComment = videoId => async dispatch => {
   }
 };
 
-
-export const channelInfo = (videoId) => async dispatch => {
-    try {
-      const response = await axios.get(YOUTUBE_CHANNEL_INFO, {
-        params: {
-          part: "snippet",
-          key: API_KEY,
-          id: videoId
-        }
-      });
-      dispatch({ type:  FETCH_CHANNEL_SUCCESS, payload: response.data.items[0].snippet });
-    } catch (error) {
-      dispatch({ type:  FETCH_CHANNEL_ERROR, payload: ERROR });
-    }
-  };
-
+export const channelInfo = videoId => async dispatch => {
+  try {
+    const response = await axios.get(YOUTUBE_CHANNEL_INFO, {
+      params: {
+        part: "snippet",
+        key: API_KEY,
+        id: videoId
+      }
+    });
+    dispatch({
+      type: FETCH_CHANNEL_SUCCESS,
+      payload: response.data.items[0].snippet
+    });
+  } catch (error) {
+    dispatch({ type: FETCH_CHANNEL_ERROR, payload: ERROR });
+  }
+};

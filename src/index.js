@@ -9,7 +9,6 @@ import { createStore, applyMiddleware, compose } from "redux";
 import reducers from "./reducers";
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducers,
@@ -17,10 +16,10 @@ const store = createStore(
 );
 
 ReactDOM.render(
-    <Router>
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById("root")
 );

@@ -9,7 +9,7 @@ export class SwitchTheme extends Component {
     return (
       <>
         <div className="warning">Theme</div>
-        <div className="flex-container"> 
+        <div className="flex-container">
           <button className="button dark" onClick={dark}>
             dark
           </button>

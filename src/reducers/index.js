@@ -64,7 +64,7 @@ const channelInfoReducer = (state = [], action) => {
     case FETCH_CHANNEL_ERROR:
       return action.payload;
     case REMOVE_CHANNEL:
-        console.log('remove chann from',state);
+      console.log("remove chann from", state);
       return state.filter(channel => channel.title !== action.payload);
     default:
       return state;
