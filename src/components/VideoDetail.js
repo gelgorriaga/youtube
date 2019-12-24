@@ -54,12 +54,12 @@ const VideoDetail = ({
             className="video-iframe"
           />
           <p className="video-title">{videoSelected.snippet.title} </p>
-          <p className="video-channel-name">
+          <span className="video-channel-name">
             {videoSelected.snippet.channelTitle}
-            <div className="sub-button">
-              {displaySubscribeButton(videoSelected.snippet.channelTitle)}
-            </div>
-          </p>
+            <span className="sub-button">
+              {"    "}{displaySubscribeButton(videoSelected.snippet.channelTitle)}
+            </span>
+          </span>
 
           <p className="video-description">
             {videoSelected.snippet.description}

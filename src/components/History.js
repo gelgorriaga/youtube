@@ -8,8 +8,8 @@ export class History extends Component {
     if (this.props.history.length > 0) {
       return this.props.history.map(history => {
         return (
-          <div className="history-list">
-            <VideoItem key={uuid()} video={history} />
+          <div className="history-list" key={uuid()} >
+            <VideoItem video={history} />
             <div className="history-item-description">
               {history.snippet.description}
             </div>
