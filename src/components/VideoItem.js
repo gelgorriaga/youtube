@@ -18,7 +18,7 @@ const VideoItem = ({
     videoSelected(video);
     videoWatched(video);
     videoComment(video.id.videoId);
-    window.scroll({ top: 0, left: 0, behavior: "auto" }); 
+    window.scroll({ top: 0, left: 0, behavior: "auto" });
     history.push("/video");
   };
 

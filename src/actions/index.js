@@ -121,18 +121,15 @@ export const searchPopularVideos = (maxResults = 50) => async dispatch => {
 
 export const videoComment = videoId => async dispatch => {
   try {
-    const comments = await axios.get(
-      YOUTUBE_VIDEO_COMMENT,
-      {
-        params: {
-          part: "snippet",
-          maxResults: 5,
-          key: API_KEY,
-          videoId: videoId,
-          textFormat: "plainText"
-        }
+    const comments = await axios.get(YOUTUBE_VIDEO_COMMENT, {
+      params: {
+        part: "snippet",
+        maxResults: 5,
+        key: API_KEY,
+        videoId: videoId,
+        textFormat: "plainText"
       }
-    );
+    });
     dispatch({
       type: VIDEO_COMMENT_SUCCESS,
       payload: comments.data.items

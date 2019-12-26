@@ -25,7 +25,7 @@ export class VideoList extends Component {
     if (viewType === "LIST") {
       return videos.map(video => {
         return (
-          <div key={uuid()} className="history-list" >
+          <div key={uuid()} className="history-list">
             <VideoItem video={video} />
             <div className="history-item-description">
               {video.snippet.description}

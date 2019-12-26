@@ -8,7 +8,7 @@ export class Comments extends Component {
     if (this.props.comments.length > 0) {
       return this.props.comments.map(comment => {
         return (
-          <div className="comment-list" key= {uuid()}>
+          <div className="comment-list" key={uuid()}>
             <p className="comment-author">
               {comment.snippet.topLevelComment.snippet.authorDisplayName}
             </p>

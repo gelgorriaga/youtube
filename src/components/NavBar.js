@@ -8,11 +8,10 @@ const NavBar = () => {
     <>
       <div className="Navbar">
         <div className="youtube-icon">
-        <NavLink exact to="/" activeClassName="Navbar-active">
-          <i class="fab fa-youtube fa-3x"></i>
-        </NavLink>
+          <NavLink exact to="/" activeClassName="Navbar-active">
+            <i class="fab fa-youtube fa-3x"></i>
+          </NavLink>
         </div>
-     
 
         <NavLink exact to="/" activeClassName="Navbar-active">
           <div className="flex-icon">

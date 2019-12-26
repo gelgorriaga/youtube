@@ -26,9 +26,17 @@ const VideoDetail = ({
   };
   const displaySubscribeButton = video => {
     if (subscription.includes(video)) {
-      return <button onClick={doUnsubscribe}>Unsubscribe <i class="far fa-bell-slash"></i></button>;
+      return (
+        <button onClick={doUnsubscribe}>
+          Unsubscribe <i class="far fa-bell-slash"></i>
+        </button>
+      );
     } else {
-      return <button onClick={doSubscribe}>Subscribe <i class="far fa-bell"></i></button>;
+      return (
+        <button onClick={doSubscribe}>
+          Subscribe <i class="far fa-bell"></i>
+        </button>
+      );
     }
   };
   const videoSrcToRender = () => {
@@ -57,7 +65,8 @@ const VideoDetail = ({
           <span className="video-channel-name">
             {videoSelected.snippet.channelTitle}
             <span className="sub-button">
-              {"    "}{displaySubscribeButton(videoSelected.snippet.channelTitle)}
+              {"    "}
+              {displaySubscribeButton(videoSelected.snippet.channelTitle)}
             </span>
           </span>
 
