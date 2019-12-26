@@ -178,13 +178,13 @@ body {
 
 input[type="text"] {
   width: 60vw;
-  /* display: flex; */
   height: 30px;
   border-radius: 5px;
-  /* margin: 0 auto; */
   border: solid 1px black;
   font-size: 20px;
   padding: 0 20px;
+  font-family: "Roboto", sans-serif, FontAwesome;
+  font-weight: map-get($font-weights, "light");
 }
 
 .history-list {
@@ -255,7 +255,6 @@ input[type="text"] {
     display: none !important;
   }
   .flex-icon {
-    //  display: flex;
     width: 375px;
     justify-content: space-between;
     padding: 0 35vw;

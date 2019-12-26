@@ -21,12 +21,12 @@ export class SearchBar extends Component {
         <form onSubmit={this.onFormSubmit}>
           <div className="searchbar-wrapper">
             <input
-              placeholder="Search"
+              class="fa"
+              placeholder="&#xf002; Search"
               type="text"
               value={this.state.term}
               onChange={this.onInputChange}
             />
-            <i class="fas fa-search 3x search-icon"></i>
           </div>
         </form>
       </>
