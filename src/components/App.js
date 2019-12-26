@@ -15,7 +15,7 @@ import Subscriptions from "./Subscriptions";
 export class App extends Component {
   componentDidMount() {
     this.props.searchPopularVideos();
-    this.props.fetchData();
+    this.props.fetchData('react redux');
   }
 
   render() {
