@@ -26,7 +26,7 @@ export class Subscriptions extends Component {
                 this.props.removeChannel(channel.title);
               }}
             >
-              Unsubscribe
+              <i class="far fa-bell-slash fa-1x	"></i>
             </button>
           </div>
         );
