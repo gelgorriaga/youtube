@@ -28,6 +28,7 @@ body {
 
 .theme {
   min-height: 100vh;
+  max-height: 15500px;
   &.light {
     background-color: $white-color;
     color: $black-color;
@@ -244,6 +245,10 @@ input[type="text"] {
 }
 
 @media only screen and (max-width: 768px) {
+  .recommended-videos {
+    width: 100vw;
+  }
+
   .google-button {
     left: 76% !important;
     padding: 5px !important;
@@ -254,6 +259,11 @@ input[type="text"] {
   .youtube-icon {
     display: none !important;
   }
+
+  .show-render-type {
+    display: none;
+  }
+
   .flex-icon {
     width: 375px;
     justify-content: space-between;
@@ -267,24 +277,26 @@ input[type="text"] {
   .search-icon {
     top: 15.5%;
   }
+
   button {
     border: solid 1px #afafaf;
   }
-  .video-list {
-    position: absolute;
-    width: 100%;
-  }
+
+
   .channel-description {
     display: none;
   }
+
   .channel-title {
     font-size: 12px;
     width: 30%;
   }
+
   .video-iframe {
     width: 300px;
     height: 200px;
   }
+
   .unsubscribe-button {
     background-color: $youtube-color;
     width: 90px;
@@ -317,10 +329,7 @@ input[type="text"] {
   }
 
   .history-item-description {
-    width: 200px;
-    font-size: 0.7rem;
-    margin: 0 auto;
-    padding-top: 0;
+    display: none;
   }
 
   .Navbar {

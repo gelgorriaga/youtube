@@ -126,7 +126,7 @@ export const videoComment = videoId => async dispatch => {
       {
         params: {
           part: "snippet",
-          maxResults: 50,
+          maxResults: 5,
           key: API_KEY,
           videoId: videoId,
           textFormat: "plainText"

@@ -7,7 +7,9 @@ const Settings = () => {
     <div>
       <div className="warning">Settings</div>
       <SwitchTheme />
-      <SwitchViewType />
+      <div className="show-render-type">
+        <SwitchViewType />
+      </div>
     </div>
   );
 };
