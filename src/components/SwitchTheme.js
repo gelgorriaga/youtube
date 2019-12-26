@@ -8,13 +8,18 @@ export class SwitchTheme extends Component {
     let { dark, light } = this.props;
     return (
       <>
-        <div className="warning">Theme</div>
+        <div className="flex-icon padding-top">
+          <div>Theme</div>
+          <div>
+            <i class="fas fa-palette"></i>
+          </div>
+        </div>
         <div className="flex-container">
           <button className="button dark" onClick={dark}>
-            dark
+            Dark <i class="far fa-moon"></i>
           </button>
           <button className="button light" onClick={light}>
-            light
+            Light <i class="far fa-sun"></i>
           </button>
         </div>
       </>

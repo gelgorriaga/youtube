@@ -17,7 +17,7 @@ export class SearchBar extends Component {
   };
   render() {
     return (
-      <div>
+      <>
         <form onSubmit={this.onFormSubmit}>
           <div className="searchbar-wrapper">
             <input
@@ -26,9 +26,10 @@ export class SearchBar extends Component {
               value={this.state.term}
               onChange={this.onInputChange}
             />
+            <i class="fas fa-search 3x search-icon"></i>
           </div>
         </form>
-      </div>
+      </>
     );
   }
 }

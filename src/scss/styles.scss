@@ -13,6 +13,11 @@ $font-weights: (
   "bold": 800
 );
 
+.search-icon {
+  position: absolute;
+  right: 21vw;
+  top: 5vw;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -61,6 +66,22 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+
+.flex-icon {
+  display: flex;
+  width: 5rem;
+  justify-content: space-around;
+}
+
+.Navbar {
+  background: #c4302b;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .warning {
   display: flex;
   width: 90%;
@@ -157,10 +178,10 @@ body {
 
 input[type="text"] {
   width: 60vw;
-  display: flex;
+  /* display: flex; */
   height: 30px;
   border-radius: 5px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   border: solid 1px black;
   font-size: 20px;
   padding: 0 20px;
@@ -198,8 +219,11 @@ input[type="text"] {
 
   max-width: 100%;
 }
+
 .searchbar-wrapper {
+  display: flex;
   padding-top: 1rem;
+  justify-content: center;
 }
 
 .comment-list {
@@ -220,6 +244,30 @@ input[type="text"] {
 }
 
 @media only screen and (max-width: 768px) {
+  .google-button {
+    left: 76% !important;
+    padding: 5px !important;
+    position: absolute !important;
+    top: 0 !important;
+    border: 1px solid !important;
+  }
+  .youtube-icon {
+    display: none !important;
+  }
+  .flex-icon {
+    //  display: flex;
+    width: 375px;
+    justify-content: space-between;
+    padding: 0 35vw;
+  }
+
+  .padding-top {
+    padding-top: 1rem;
+  }
+
+  .search-icon {
+    top: 15.5%;
+  }
   button {
     border: solid 1px #afafaf;
   }
