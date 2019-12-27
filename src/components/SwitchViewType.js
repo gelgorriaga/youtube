@@ -11,7 +11,7 @@ export class SwitchViewType extends Component {
         <div className="warning">Render</div>
         <div className="flex-container">
           <button className="button" onClick={list}>
-            List <i class="fas fa-stream"></i>
+            List <i className="fas fa-stream"></i>
           </button>
           <button className="button" onClick={grid}>
             Grid <i className="fas fa-th-large"></i>

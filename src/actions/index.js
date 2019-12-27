@@ -94,7 +94,10 @@ export const fetchData = (term, maxResults = 50) => async dispatch => {
         maxResults: maxResults
       }
     });
-    dispatch({ type: FETCH_DATA_SUCCESS, payload: response.data.items });
+    const cleanResponse = response.data.items.filter(
+      el => el.id.kind === "youtube#video"
+    );
+    dispatch({ type: FETCH_DATA_SUCCESS, payload: cleanResponse });
   } catch (error) {
     dispatch({ type: FETCH_DATA_ERROR, payload: ERROR });
   }
@@ -157,7 +160,6 @@ export const channelInfo = videoId => async dispatch => {
       }
     });
     const { subscriberCount } = amountOfSubscribers.data.items[0].statistics;
-    console.log(subscriberCount);
     dispatch({
       type: FETCH_CHANNEL_SUCCESS,
       payload: { ...response.data.items[0].snippet, subscriberCount }
