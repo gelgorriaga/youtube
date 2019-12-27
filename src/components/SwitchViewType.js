@@ -10,10 +10,10 @@ export class SwitchViewType extends Component {
       <>
         <div className="warning">Render</div>
         <div className="flex-container">
-          <button className="button" onClick={list}>
+          <button className="custom-button" onClick={list}>
             List <i className="fas fa-stream"></i>
           </button>
-          <button className="button" onClick={grid}>
+          <button className="custom-button" onClick={grid}>
             Grid <i className="fas fa-th-large"></i>
           </button>
         </div>

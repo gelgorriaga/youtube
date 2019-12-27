@@ -10,10 +10,10 @@ export class SwitchTheme extends Component {
       <>
         <div className="warning">Theme</div>
         <div className="flex-container">
-          <button className="button dark" onClick={dark}>
+          <button className="custom-button dark" onClick={dark}>
             Dark <i className="far fa-moon"></i>
           </button>
-          <button className="button light" onClick={light}>
+          <button className="custom-button light" onClick={light}>
             Light <i className="far fa-sun"></i>
           </button>
         </div>
