@@ -20,11 +20,11 @@ export class Comments extends Component {
       });
     }
   }
-  render() {
-    let { comments } = this.props;
+
+  returnCases() {
     return (
       <div>
-        {comments.length === 0 ? (
+        {this.props.comments.length === 0 ? (
           <div className="warning">
             {" "}
             You haven't seen any videos yet, please come back when you see any
@@ -37,6 +37,10 @@ export class Comments extends Component {
         )}
       </div>
     );
+  }
+
+  render() {
+    return <>{this.returnCases()}</>;
   }
 }
 

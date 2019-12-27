@@ -19,15 +19,15 @@ export class GoogleAuth extends Component {
     });
   }
 
-  onAuthChange = () => {
+  onAuthChange = _ => {
     this.setState({ isSignedIn: this.auth.isSignedIn.get() });
   };
 
-  onSignIn = () => {
+  onSignIn = _ => {
     this.auth.signIn();
   };
 
-  onSignOut = () => {
+  onSignOut = _ => {
     this.auth.signOut();
   };
 

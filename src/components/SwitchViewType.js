@@ -8,19 +8,13 @@ export class SwitchViewType extends Component {
     let { list, grid } = this.props;
     return (
       <>
-        <div className="flex-icon padding-top">
-          <div>Render</div>
-          <div>
-            <i class="fas fa-list"></i>
-          </div>
-        </div>
-
+        <div className="warning">Render</div>
         <div className="flex-container">
           <button className="button" onClick={list}>
             List <i class="fas fa-stream"></i>
           </button>
           <button className="button" onClick={grid}>
-            Grid <i class="fas fa-th-large"></i>
+            Grid <i className="fas fa-th-large"></i>
           </button>
         </div>
       </>

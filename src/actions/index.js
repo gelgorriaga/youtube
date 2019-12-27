@@ -53,25 +53,25 @@ export const removeChannel = video => {
   };
 };
 
-export const light = () => {
+export const light = _ => {
   return {
     type: THEME_LIGHT
   };
 };
 
-export const dark = () => {
+export const dark = _ => {
   return {
     type: THEME_DARK
   };
 };
 
-export const grid = () => {
+export const grid = _ => {
   return {
     type: GRID
   };
 };
 
-export const list = () => {
+export const list = _ => {
   return {
     type: LIST
   };
@@ -148,9 +148,19 @@ export const channelInfo = videoId => async dispatch => {
         id: videoId
       }
     });
+
+    const amountOfSubscribers = await axios.get(YOUTUBE_CHANNEL_INFO, {
+      params: {
+        part: "statistics",
+        key: API_KEY,
+        id: videoId
+      }
+    });
+    const { subscriberCount } = amountOfSubscribers.data.items[0].statistics;
+    console.log(subscriberCount);
     dispatch({
       type: FETCH_CHANNEL_SUCCESS,
-      payload: response.data.items[0].snippet
+      payload: { ...response.data.items[0].snippet, subscriberCount }
     });
   } catch (error) {
     dispatch({ type: FETCH_CHANNEL_ERROR, payload: ERROR });

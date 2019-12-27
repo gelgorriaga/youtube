@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/styles.css";
 import VideoList from "./VideoList";
 import Comments from "./Comments";
@@ -28,18 +28,19 @@ const VideoDetail = ({
     if (subscription.includes(video)) {
       return (
         <button onClick={doUnsubscribe}>
-          Unsubscribe <i class="far fa-bell-slash"></i>
+          Unsubscribe <i className="far fa-bell-slash"></i>
         </button>
       );
     } else {
       return (
         <button onClick={doSubscribe}>
-          Subscribe <i class="far fa-bell"></i>
+          Subscribe <i className="far fa-bell"></i>
         </button>
       );
     }
   };
-  const videoSrcToRender = () => {
+
+  const videoSrcToRender = _ => {
     if (typeof videoSelected.id === "string") {
       return `https://www.youtube.com/embed/${videoSelected.id}`;
     } else {
@@ -47,13 +48,9 @@ const VideoDetail = ({
     }
   };
 
-  const videoSrc = videoSrcToRender();
-
-  if (!videoSelected) {
-    return <div>Loading...</div>;
-  }
-  return (
-    <>
+  const renderVideoDetail = _ => {
+    const videoSrc = videoSrcToRender();
+    return (
       <div className="home-wrapper">
         <div className="video-wrapper">
           <iframe
@@ -79,15 +76,18 @@ const VideoDetail = ({
           <VideoList videos={fetchData} amountOfVideos={45} />
         </div>
       </div>
-    </>
-  );
+    );
+  };
+
+  return <>{renderVideoDetail()}</>;
 };
 
 const mapStateToProps = state => {
   return {
     subscription: state.subscription,
     videoSelected: state.videoSelected,
-    fetchData: state.fetchData
+    fetchData: state.fetchData,
+    channelInfoData: state.channelInfo
   };
 };
 const mapDispatchToProps = dispatch => {

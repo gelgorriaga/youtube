@@ -17,7 +17,7 @@ export class Subscriptions extends Component {
               alt="channel thumbnail"
             />
             <div className="channel-title">{channel.title}</div>
-                        
+            <div className="channel-title">Subs: {channel.subscriberCount}</div>
             <div className="channel-description">{channel.description}</div>
             <button
               className="unsubscribe-button"
@@ -26,7 +26,7 @@ export class Subscriptions extends Component {
                 this.props.removeChannel(channel.title);
               }}
             >
-              <i class="far fa-bell-slash fa-1x	"></i>
+              <i className="far fa-bell-slash fa-1x	"></i>
             </button>
           </div>
         );
@@ -38,7 +38,7 @@ export class Subscriptions extends Component {
     }
   }
   render() {
-    return <div>{this.renderList()}</div>;
+    return <>{this.renderList()}</>;
   }
 }
 

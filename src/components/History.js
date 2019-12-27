@@ -18,13 +18,12 @@ export class History extends Component {
       });
     }
   }
-  render() {
-    let { history } = this.props;
+
+  returnCases() {
     return (
       <div>
-        {history.length === 0 ? (
+        {this.props.history.length === 0 ? (
           <div className="warning">
-            {" "}
             You haven't seen any videos yet, please come back when you see any
           </div>
         ) : (
@@ -32,6 +31,10 @@ export class History extends Component {
         )}
       </div>
     );
+  }
+
+  render() {
+    return <>{this.returnCases()}</>;
   }
 }
 

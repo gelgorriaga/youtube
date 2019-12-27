@@ -15,13 +15,14 @@ export class SearchBar extends Component {
   onInputChange = event => {
     this.setState({ term: event.target.value });
   };
-  render() {
+
+  returnForm = _ => {
     return (
       <>
         <form onSubmit={this.onFormSubmit}>
           <div className="searchbar-wrapper">
             <input
-              class="fa"
+              className="fa"
               placeholder="&#xf002; Search"
               type="text"
               value={this.state.term}
@@ -31,6 +32,10 @@ export class SearchBar extends Component {
         </form>
       </>
     );
+  };
+
+  render() {
+    return <>{this.returnForm()}</>;
   }
 }
 

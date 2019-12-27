@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 import "../css/NavBar.css";
 import GoogleAuth from "./GoogleAuth";
 
-const NavBar = () => {
+const NavBar = _ => {
   return (
     <>
       <div className="Navbar">
         <div className="youtube-icon">
           <NavLink exact to="/" activeClassName="Navbar-active">
-            <i class="fab fa-youtube fa-3x"></i>
+            <i className="fab fa-youtube fa-3x"></i>
           </NavLink>
         </div>
 
@@ -17,7 +17,7 @@ const NavBar = () => {
           <div className="flex-icon">
             <div>Home</div>
             <div>
-              <i class="fas fa-home"></i>
+              <i className="fas fa-home"></i>
             </div>
           </div>
         </NavLink>
@@ -26,7 +26,7 @@ const NavBar = () => {
           <div className="flex-icon">
             <div>Trending</div>
             <div>
-              <i class="fas fa-fire"></i>
+              <i className="fas fa-fire"></i>
             </div>
           </div>
         </NavLink>
@@ -35,7 +35,7 @@ const NavBar = () => {
           <div className="flex-icon">
             <div>History</div>
             <div>
-              <i class="fas fa-history"></i>
+              <i className="fas fa-history"></i>
             </div>
           </div>
         </NavLink>
@@ -44,7 +44,7 @@ const NavBar = () => {
           <div className="flex-icon">
             <div>Subs</div>
             <div>
-              <i class="far fa-bell"></i>
+              <i className="far fa-bell"></i>
             </div>
           </div>
         </NavLink>
@@ -53,7 +53,7 @@ const NavBar = () => {
           <div className="flex-icon">
             <div>Settings</div>
             <div>
-              <i class="fas fa-cog"></i>
+              <i className="fas fa-cog"></i>
             </div>
           </div>
         </NavLink>
