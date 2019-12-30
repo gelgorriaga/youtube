@@ -21,13 +21,16 @@ export class History extends Component {
 
   returnCases() {
     return (
-      <div>
+      <div className="margin">
         {this.props.history.length === 0 ? (
           <div className="warning">
             You haven't seen any videos yet, please come back when you see any
           </div>
         ) : (
-          this.renderList()
+          <div className="margin">
+{ this.renderList()}
+          </div>
+         
         )}
       </div>
     );

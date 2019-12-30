@@ -12,19 +12,42 @@ import TrendingVideos from "./TrendingVideos";
 import Home from "./Home";
 import VideoDetail from "./VideoDetail";
 import Subscriptions from "./Subscriptions";
+import Toolbar from "./toolbar/Toolbar";
+import SideDrawer from "./toolbar/SideDrawer";
+import BackDrop from "./toolbar/BackDrop";
 export class App extends Component {
+  state = {
+    sideDrawerOpen: false
+  };
   componentDidMount() {
     this.props.searchPopularVideos();
     this.props.fetchData("react redux");
   }
 
+  drawerToggleClickHandler = () => {
+    this.setState(prevState => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backDropClickHandler = () =>{
+    this.setState({sideDrawerOpen: false});
+  };
+
   render() {
     const { theme } = this.props;
-
     const themeClass = theme === "DARK" ? "dark" : "light";
+    let backDrop;
+
+    if (this.state.sideDrawerOpen) {
+
+      backDrop = <BackDrop click={this.backDropClickHandler} />
+    }
     return (
       <BrowserRouter>
-        <NavBar />
+        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        <SideDrawer show={this.state.sideDrawerOpen} />
+        {backDrop}
         <div className={`theme ${themeClass}`}>
           <Switch>
             <Route path="/" exact component={Home} />

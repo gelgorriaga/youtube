@@ -38,7 +38,7 @@ export class Subscriptions extends Component {
     }
   }
   render() {
-    return <>{this.renderList()}</>;
+    return <div className="margin">{this.renderList()}</div>;
   }
 }
 

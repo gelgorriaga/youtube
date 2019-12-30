@@ -13,10 +13,10 @@ export class Home extends Component {
 
   render() {
     return (
-      <>
+      <div className="margin">
         <SearchBar />
         <VideoList videos={this.props.fetchData} />
-      </>
+      </div>
     );
   }
 }
