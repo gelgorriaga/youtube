@@ -23,6 +23,7 @@ import {
   REMOVE_CHANNEL
 } from "../constants";
 
+//History reducer
 const historyOfVideos = (history = [], action) => {
   switch (action.type) {
     case VIDEO_WATCHED:
@@ -34,11 +35,11 @@ const historyOfVideos = (history = [], action) => {
   }
 };
 
+//Subscription reducer
 const subscribeReducer = (channel = [], action) => {
   switch (action.type) {
     case SUBSCRIBE:
-      let channelDup = [...channel, action.payload];
-      return channelDup;
+      return [...channel, action.payload];
     case UNSUBSCRIBE:
       return channel.filter(name => name !== action.payload);
     default:
@@ -46,6 +47,7 @@ const subscribeReducer = (channel = [], action) => {
   }
 };
 
+//Search video reducer
 const fetchDataReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_DATA_SUCCESS:
@@ -57,6 +59,7 @@ const fetchDataReducer = (state = {}, action) => {
   }
 };
 
+//Fetch channel information reducer
 const channelInfoReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_CHANNEL_SUCCESS:
@@ -70,6 +73,7 @@ const channelInfoReducer = (state = [], action) => {
   }
 };
 
+//Fetch trending videos reducer
 const popularVideoReducer = (popularVideos = {}, action) => {
   switch (action.type) {
     case FETCH_POPULAR_DATA_SUCCESS:
@@ -81,6 +85,7 @@ const popularVideoReducer = (popularVideos = {}, action) => {
   }
 };
 
+//Video selected reducer
 const videoSelectReducer = (videoSelected = null, action) => {
   switch (action.type) {
     case VIDEO_SELECTED:
@@ -90,6 +95,7 @@ const videoSelectReducer = (videoSelected = null, action) => {
   }
 };
 
+//Light or Dark theme reducer
 const themeReducer = (light = LIGHT, action) => {
   switch (action.type) {
     case THEME_LIGHT:
@@ -101,6 +107,7 @@ const themeReducer = (light = LIGHT, action) => {
   }
 };
 
+//Display of the videos as a grid or list reducer
 const viewReducer = (display = GRID, action) => {
   switch (action.type) {
     case GRID:
@@ -112,6 +119,7 @@ const viewReducer = (display = GRID, action) => {
   }
 };
 
+//Comments per video reducer
 const commentReducer = (comments = [], action) => {
   switch (action.type) {
     case VIDEO_COMMENT_SUCCESS:
@@ -123,6 +131,7 @@ const commentReducer = (comments = [], action) => {
   }
 };
 
+//combine reducers
 export default combineReducers({
   fetchData: fetchDataReducer,
   popularData: popularVideoReducer,

@@ -57,7 +57,7 @@ export class GoogleAuth extends Component {
     }
   }
   render() {
-    return <div>{this.renderAuthButton()}</div>;
+    return <>{this.renderAuthButton()}</>;
   }
 }
 
