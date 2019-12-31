@@ -150,3 +150,22 @@ a.link {
     margin-left: 0;
   }
 }
+
+//landscape
+@media only screen and (min-width: 812px) and (orientation: landscape) {
+  .toolbar-navigation-items {
+    display: none;
+  }
+  .toolbar-toggle-button {
+    display: block;
+  }
+  .side-drawer {
+    display: block;
+  }
+  .youtube-icon {
+    display: none;
+  }
+  .side-drawer {
+    width: 250px;
+  }
+}

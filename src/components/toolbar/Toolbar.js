@@ -1,6 +1,6 @@
 import React from "react";
 import DrawerToggleButton from "./DrawerToggleButton";
-import { NavLink, IndexLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import GoogleAuth from '../GoogleAuth';
 import "../../css/Toolbar.css";
 
@@ -12,7 +12,7 @@ const Toolbar = props => (
       </div>
       <div className="toolbar-logo">
         <a href="/">
-          <i className="fab fa-youtube fa-3x"></i>
+          <i className="fab fa-youtube fa-3x youtube-icon"></i>
         </a>
       </div>
       <div className="spacer" />

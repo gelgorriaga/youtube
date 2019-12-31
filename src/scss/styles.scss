@@ -331,3 +331,29 @@ input[type="text"] {
     display: none;
   }
 }
+
+//landscape
+
+@media only screen and (min-width: 812px) and (orientation: landscape) {
+  .video-iframe {
+    width: 500px;
+    height: 300px;
+  }
+  .video-wrapper {
+    margin: 0;
+    padding: 5rem 0 0 1rem;
+  }
+
+  .video-description,
+  .video-channel-name {
+    width: 300px;
+  }
+
+  .comment-list {
+    margin: 0;
+  }
+
+  .recommended-videos {
+    padding-top: 3rem !important;
+  }
+}
