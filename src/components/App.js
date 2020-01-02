@@ -15,6 +15,7 @@ import Subscriptions from "./Subscriptions";
 import Toolbar from "./toolbar/Toolbar";
 import SideDrawer from "./toolbar/SideDrawer";
 import BackDrop from "./toolbar/BackDrop";
+
 export class App extends Component {
   state = {
     sideDrawerOpen: false
@@ -30,8 +31,8 @@ export class App extends Component {
     });
   };
 
-  backDropClickHandler = () =>{
-    this.setState({sideDrawerOpen: false});
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
   };
 
   render() {
@@ -40,8 +41,7 @@ export class App extends Component {
     let backDrop;
 
     if (this.state.sideDrawerOpen) {
-
-      backDrop = <BackDrop click={this.backDropClickHandler} />
+      backDrop = <BackDrop click={this.backDropClickHandler} />;
     }
     return (
       <BrowserRouter>

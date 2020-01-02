@@ -132,6 +132,7 @@ html {
 .video-iframe {
   width: 1020px;
   height: 480px;
+  border-radius: 5px;
 }
 
 .video-wrapper {
@@ -251,6 +252,13 @@ input[type="text"] {
   margin: 0 5rem;
 }
 
+.go-back-button {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  font-size: 30px;
+}
+
 @media only screen and (max-width: 768px) {
   .recommended-videos {
     width: 100vw;
@@ -280,6 +288,14 @@ input[type="text"] {
 
   button {
     border: solid 1px #afafaf;
+  }
+
+  .go-back-button {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    top: 4rem;
+    left: 1rem;
   }
 
   .channel-description {
@@ -334,14 +350,14 @@ input[type="text"] {
 
 //landscape
 
-@media only screen and (min-width: 812px) and (orientation: landscape) {
+@media only screen and (max-width: 812px) and (orientation: landscape) {
   .video-iframe {
     width: 500px;
-    height: 300px;
+    height: 280px;
   }
   .video-wrapper {
     margin: 0;
-    padding: 5rem 0 0 1rem;
+    padding: 2rem 0 0 1rem;
   }
 
   .video-description,
@@ -354,6 +370,18 @@ input[type="text"] {
   }
 
   .recommended-videos {
-    padding-top: 3rem !important;
+    padding-top: 0.5rem !important;
+  }
+
+  .youtube-icon {
+    display: none;
+  }
+
+  .go-back-button {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    top: 4.5rem;
+    left: 1rem;
   }
 }

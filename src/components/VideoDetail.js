@@ -5,6 +5,7 @@ import Comments from "./Comments";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { subscribe, unsubscribe, channelInfo, removeChannel } from "../actions";
+import GoBackButton from "./GoBackButton";
 
 const VideoDetail = ({
   videoSelected,
@@ -51,8 +52,11 @@ const VideoDetail = ({
   const renderVideoDetail = _ => {
     const videoSrc = videoSrcToRender();
     return (
-      <div className="home-wrapper">
+      <>
+       
+      <div className="home-wrapper margin">
         <div className="video-wrapper">
+        <GoBackButton />
           <iframe
             title="video Player"
             src={videoSrc}
@@ -76,6 +80,7 @@ const VideoDetail = ({
           <VideoList videos={fetchData} amountOfVideos={45} />
         </div>
       </div>
+      </>
     );
   };
 
