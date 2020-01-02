@@ -66,11 +66,12 @@ const VideoDetail = ({
           <p className="video-title">{videoSelected.snippet.title} </p>
           <span className="video-channel-name">
             {videoSelected.snippet.channelTitle}
-          </span>
-
-          <span className="normal-button">
+            <span className="normal-button">
           {displaySubscribeButton(videoSelected.snippet.channelTitle)}
           </span>
+          </span>
+
+          
           
 
           <p className="video-description">

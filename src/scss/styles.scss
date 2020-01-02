@@ -264,6 +264,10 @@ input[type="text"] {
   background: white;
   border: 1px solid steelblue;
   border-radius: 3px;
+  width: 7rem;
+  height: 1rem;
+  font-size: 10px;
+  margin-left: 1rem;
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
@@ -291,10 +295,6 @@ input[type="text"] {
 
   .search-icon {
     top: 15.5%;
-  }
-
-  button {
-    border: solid 1px #afafaf;
   }
 
   .go-back-button {
@@ -327,9 +327,10 @@ input[type="text"] {
   }
 
   .video-description,
-  .video-channel-name {
+  .video-channel-name,
+  .video-title {
     font-size: 0.7rem;
-    width: 200px;
+    width: 70vw;
     word-break: break-all;
   }
 
@@ -358,6 +359,18 @@ input[type="text"] {
 //landscape
 
 @media only screen and (max-width: 812px) and (orientation: landscape) {
+  .video-item {
+    margin: 2rem 1rem 0 0;
+  }
+
+  .video-item.item img {
+    width: 12rem;
+    height: 7rem;
+  }
+  .header {
+    width: 10rem;
+  }
+
   .video-iframe {
     width: 65vw;
     height: 280px;
@@ -377,7 +390,6 @@ input[type="text"] {
   }
 
   .recommended-videos {
-    padding-top: 0.5rem !important;
     width: 30vw;
   }
 
