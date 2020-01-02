@@ -59,17 +59,19 @@ const VideoDetail = ({
         <GoBackButton />
           <iframe
             title="video Player"
+            allowfullscreen="0"
             src={videoSrc}
             className="video-iframe"
           />
           <p className="video-title">{videoSelected.snippet.title} </p>
           <span className="video-channel-name">
             {videoSelected.snippet.channelTitle}
-            <span className="sub-button">
-              {"    "}
-              {displaySubscribeButton(videoSelected.snippet.channelTitle)}
-            </span>
           </span>
+
+          <span className="normal-button">
+          {displaySubscribeButton(videoSelected.snippet.channelTitle)}
+          </span>
+          
 
           <p className="video-description">
             {videoSelected.snippet.description}
