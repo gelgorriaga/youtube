@@ -9,6 +9,7 @@ $toolbar-active-color: #fff;
   width: 100%;
   background-color: $toolbar-background;
   height: 56px;
+  z-index: 1;
 }
 
 .toolbar-navigation {

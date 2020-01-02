@@ -21,7 +21,9 @@ const VideoItem = ({
       ? videoComment(video.id.videoId)
       : videoComment(video.id);
     window.scroll({ top: 0, left: 0, behavior: "auto" });
-    history.push("/video");
+    typeof video.id.videoId === "string"
+      ? history.push(`/video?id=${video.id.videoId}`)
+      : history.push(`/video?id=${video.id}`);
   };
 
   return (

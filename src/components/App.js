@@ -54,7 +54,7 @@ export class App extends Component {
             <Route path="/history" exact component={History} />
             <Route path="/settings" exact component={Settings} />
             <Route path="/trending" exact component={TrendingVideos} />
-            <Route path="/video" exact component={VideoDetail} />
+            <Route path="/video" component={VideoDetail} />
             <Route path="/subscriptions" exact component={Subscriptions} />
           </Switch>
         </div>
