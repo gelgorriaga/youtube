@@ -77,7 +77,7 @@ const VideoDetail = ({
           <Comments />
         </div>
         <div className="recommended-videos">
-          <VideoList videos={fetchData} amountOfVideos={45} />
+          <VideoList videos={fetchData} amountOfVideos={15} />
         </div>
       </div>
       </>

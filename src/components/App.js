@@ -25,13 +25,13 @@ export class App extends Component {
     this.props.fetchData("react redux");
   }
 
-  drawerToggleClickHandler = () => {
+  drawerToggleClickHandler = _ => {
     this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
 
-  backDropClickHandler = () => {
+  backDropClickHandler = _ => {
     this.setState({ sideDrawerOpen: false });
   };
 

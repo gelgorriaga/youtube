@@ -127,7 +127,7 @@ export const videoComment = videoId => async dispatch => {
     const comments = await axios.get(YOUTUBE_VIDEO_COMMENT, {
       params: {
         part: "snippet",
-        maxResults: 5,
+        maxResults: 15,
         key: API_KEY,
         videoId: videoId,
         textFormat: "plainText"
