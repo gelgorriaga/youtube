@@ -9,9 +9,8 @@ const SideDrawer = props => {
   if (props.show) {
     drawerClasses = "side-drawer open";
   }
-
   return (
-    <nav className={drawerClasses}>
+    <nav className={drawerClasses} onClick={props.drawerClickHandler}>
       <ul>
         <li>
           <NavLink exact to="/" className="link" activeClassName="link-active">

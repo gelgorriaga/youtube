@@ -46,7 +46,7 @@ export class App extends Component {
     return (
       <BrowserRouter>
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
+        <SideDrawer show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
         {backDrop}
         <div className={`theme ${themeClass}`}>
           <Switch>
